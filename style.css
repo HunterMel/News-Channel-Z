@@ -9,6 +9,12 @@
     border: 3em;
     text-align: center;
     font-style: italic;
-    text-shadow: -1px 1px 2px #000,
-
+    font-size: large;
+    
 }
+
+.index {
+    display: flex;
+    justify-content: center;
+}
+
