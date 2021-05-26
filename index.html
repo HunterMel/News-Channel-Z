@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
-<body>
-    <div class="header"> Weather Dashboard </div>
+<div>
+    <div class="header">Weather Dashboard
+        <p>Search for weather by city and get the 5-day forcast</p>
+    </div>
+
+
     <div>
+        <form>
+            <label for="city">Search for a City:</label><br>
+            <input id="city" type="text" placeholder="Nashville">
+        </form>
 
-        <div>
-            <form>
-                <label for="city">Search for a City:</label><br>
-                <input id="city" type="text" placeholder="Nashville">
-            </form>
+        <button type="button" class="btn btn-primary" id="searchButton">Search</button>
 
-            <button type="button" class="btn btn-primary" id="searchButton">Search</button>
-
-            <section class="searchHistory"></section>
-        </div>
+        <section class="searchHistory"></section>
 
         <div>
 
@@ -44,6 +48,6 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+    </body>
 
 </html>

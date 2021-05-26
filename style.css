@@ -1,0 +1,14 @@
+.header {
+    background-image: url(./images/weather.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70em; 
+    height: 20em;
+    margin: auto;
+    border: 3em;
+    text-align: center;
+    font-style: italic;
+    text-shadow: -1px 1px 2px #000,
+
+}
