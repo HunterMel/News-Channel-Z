@@ -9,14 +9,21 @@ const apiKey = '631b54059a7685cd2a3b02d495ec1018'
 const inputEl = $("#city");
 const searchEl = $("#searchButton");
 
-function searchFunction() {
+function searchFunction1() {
     const cityName = inputEl.val();
 
     getCityData(cityName)
 
 }
 
-searchEl.on("click", searchFunction)
+function addtotextbox(id) {
+    $('#city').val(recentSearches[id]);
+    console.log(recentSearches[id]);
+}
+
+var recentSearches = []; // create an empty javascript array
+
+searchEl.on("click", searchFunction1)
 
 //get current weather by City unique Id
 //5 day forecast/future conditions call is displayed 
@@ -108,8 +115,30 @@ var getCityData = function (city) {
             tempDay5El.text("Temperature: " + fiveDayData.list[31].main.temp)
         })
 
-
+        searchFunction();
     })
+
+
+
+    // function addtotextbox(id) {
+    //   $('#city').val(recentSearches[id]);
+    // console.log(recentSearches[id]);
+    //  }
+    //this function is called using the search buttons "onclick"
+    function searchFunction(data) {
+        recentSearches.push($('#city').val()); // This line puts the value from the text box in an array
+        console.log($('#city').val());
+        $('#city').val(""); //  clear the text box after search
+        $('#searchHistory').text(""); //clear the seach history window then repopulate with the new array
+
+        // the function below loops through the array and adds each item in the array
+        // to the span element within the Search history arear
+        $.each(recentSearches, function (index, value) {
+            $('#searchHistory').append("<li class='historyItem'  onclick='addtotextbox(" + index + ")'>" + value + '</li>');
+        });
+    }
+
+
 };
 
 //get value from city input
