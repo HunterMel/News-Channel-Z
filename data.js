@@ -78,10 +78,16 @@ var getCityData = function (city) {
         // start rendering data for current weather
         const cityH3El = $('#currentCity');
         const tempH4El = $('#currentTemp');
-        const windH4El = $('#currentWind')
+        const windH4El = $('#currentWind');
+        const humidityH4El = $('#currentHumidity');
+        const indexH4El = $('#currentIndex');
+
 
         cityH3El.text(data.name)
-        tempH4El.text("Temperature: " + data.main.temp)
+        tempH4El.text("Temperature: " + data.main.temp + "K")
+        windH4El.text("Wind: " + data.wind.speed + "mph")
+        humidityH4El.text("Humidity: " + data.main.humidity + "%")
+        indexH4El.text("Index")
 
 
         const apiWeatherFor5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + data.name + "&appid=631b54059a7685cd2a3b02d495ec1018";
@@ -91,12 +97,15 @@ var getCityData = function (city) {
 
             const tempDay1El = $('#tempDay1')
             const tempDay2El = $('#tempDay2')
-
+            const tempDay3El = $('#tempDay3')
+            const tempDay4El = $('#tempDay4')
+            const tempDay5El = $('#tempDay5')
 
             tempDay1El.text("Temperature: " + fiveDayData.list[0].main.temp)
             tempDay2El.text("Temperature: " + fiveDayData.list[8].main.temp)
-
-
+            tempDay3El.text("Temperature: " + fiveDayData.list[15].main.temp)
+            tempDay4El.text("Temperature: " + fiveDayData.list[23].main.temp)
+            tempDay5El.text("Temperature: " + fiveDayData.list[31].main.temp)
         })
 
 
