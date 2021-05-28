@@ -63,21 +63,7 @@ searchEl.on("click", searchFunction1)
 var getCityData = function (city) {
     const apiWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=631b54059a7685cd2a3b02d495ec1018";
 
-    // JS fetch vs ajax
-    //make a request to url
-    // fetch(apiWeather).then(function (response) {
-    //     console.log(response);
-    //     response.json().then(function (weather) {
-    //         console.log(weather);
-    //     });
-    // });
 
-    // $.ajax({
-    //     url: apiWeather,
-    //     success: function(data) {
-    //         console.log(data)
-    //     }, 
-    // })
 
     $.get(apiWeather, function (data) {
         console.log(data)
@@ -108,11 +94,35 @@ var getCityData = function (city) {
             const tempDay4El = $('#tempDay4')
             const tempDay5El = $('#tempDay5')
 
+            //const windDay1El = $('#tempDay1')
+            //const windDay2El = $('#tempDay2')
+            //const windDay3El = $('#tempDay3')
+            //const windDay4El = $('#tempDay4')
+            //const windDay5El = $('#tempDay5')
+
+            // const humidityDay1El = $('#tempDay1')
+            //const humidityDay2El = $('#tempDay2')
+            //const humidityDay3El = $('#tempDay3')
+            //const humidityDay4El = $('#tempDay4')
+            //const humidityDay5El = $('#tempDay5')
+
             tempDay1El.text("Temperature: " + fiveDayData.list[0].main.temp)
             tempDay2El.text("Temperature: " + fiveDayData.list[8].main.temp)
             tempDay3El.text("Temperature: " + fiveDayData.list[15].main.temp)
             tempDay4El.text("Temperature: " + fiveDayData.list[23].main.temp)
             tempDay5El.text("Temperature: " + fiveDayData.list[31].main.temp)
+
+            //windDay1El.text("Wind: " + fiveDayData.list[0].wind.speed)
+            //windDay2El.text("Wind: " + fiveDayData.list[8].wind.speed)
+            //windDay3El.text("Wind: " + fiveDayData.list[15].wind.speed)
+            //windDay4El.text("Wind: " + fiveDayData.list[23].wind.speed)
+            //windDay5El.text("Wind: " + fiveDayData.list[31].wind.speed)
+
+            //humidityDay1El.text("Wind: " + fiveDayData.list[0].main.humidity)
+            //humidityDay2El.text("Wind: " + fiveDayData.list[8].main.humidity)
+            //humidityDay3El.text("Wind: " + fiveDayData.list[15].main.humi)
+            //humidityDay4El.text("Wind: " + fiveDayData.list[23].main.humi)
+            //humidityDay5El.text("Wind: " + fiveDayData.list[31].main.humi)
         })
 
         searchFunction();

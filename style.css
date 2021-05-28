@@ -8,11 +8,16 @@
     margin: auto;
     border: 3em;
     text-align: center;
-    font-style: italic;
-    font-size: large;
+    font-style: sans-serif;
+    font-size: x-large;
+    text-shadow: -1px 0 black;
     
 }
 
+.under {
+    font-size: small;
+    font-style: italic;
+}
 .index {
     display: flex;
     justify-content: center;
