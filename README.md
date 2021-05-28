@@ -1,5 +1,5 @@
-# News-Channel-Z
-
+# News-Channel-Z: By Hunter Johnson
+ https://trayehunter1.github.io/News-Channel-Z/
 
 ![](images/weatherscreenshot.png)
 
