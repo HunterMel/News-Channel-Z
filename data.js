@@ -25,43 +25,11 @@ var recentSearches = []; // create an empty javascript array
 
 searchEl.on("click", searchFunction1)
 
-//get current weather by City unique Id
-//5 day forecast/future conditions call is displayed 
-//display current date, temp, wind, humidity, UV index and city name using server APIs
-// function runWeather(data) {
 
-//     //const inputEl = document.getElementById("city-search");
-//     const inputEl = $("#city-search");
-//     //element to search for history
-//     //const searchEl = document.getElementById("search-btn");
-//     const searchEl = $("#search-btn");
-//     //button to clear history
-//     //const clearEl = document.getElementById("clear-btn");
-//     const clearEl = $("#clear-btn");
-//     //const cityNameEl = document.getElementById("city-name");
-//     const cityNameEl = $("#city-name");
-//     //const weatherIcon = document.getElementById("icon");
-//     const weatherIcon = $("#icon");
-//     // const tempEl = document.getElementById("temperature");
-//     const tempEl = $('#temperature');
-//     tempEl.text("temperature: " + data.main.temp);
-
-
-//     const windEl = $("#wind-speed");
-//     windEl.text("wind-speed: " + data.wind.speed);
-//     const humidityEl = $("#humidity");
-
-//     const uvEl = $("#UV-index");
-//     // tempEl.textContent = "New value"
-
-
-
-
-// }
 
 //display current temp
 var getCityData = function (city) {
-    const apiWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=631b54059a7685cd2a3b02d495ec1018";
+    const apiWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=631b54059a7685cd2a3b02d495ec1018&units=imperial";
 
 
 
@@ -77,13 +45,13 @@ var getCityData = function (city) {
 
 
         cityH3El.text(data.name)
-        tempH4El.text("Temperature: " + data.main.temp + "K")
+        tempH4El.text("Temperature: " + data.main.temp + "°F")
         windH4El.text("Wind: " + data.wind.speed + "mph")
         humidityH4El.text("Humidity: " + data.main.humidity + "%")
         indexH4El.text("Index")
 
 
-        const apiWeatherFor5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + data.name + "&appid=631b54059a7685cd2a3b02d495ec1018";
+        const apiWeatherFor5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + data.name + "&appid=631b54059a7685cd2a3b02d495ec1018&units=imperial";
 
         $.get(apiWeatherFor5Day, function (fiveDayData) {
             console.log(fiveDayData)
@@ -94,17 +62,17 @@ var getCityData = function (city) {
             const tempDay4El = $('#tempDay4')
             const tempDay5El = $('#tempDay5')
 
-            //const windDay1El = $('#tempDay1')
-            //const windDay2El = $('#tempDay2')
-            //const windDay3El = $('#tempDay3')
-            //const windDay4El = $('#tempDay4')
-            //const windDay5El = $('#tempDay5')
+            const windDay1El = $('#windDay1')
+            const windDay2El = $('#windDay2')
+            const windDay3El = $('#windDay3')
+            const windDay4El = $('#windDay4')
+            const windDay5El = $('#windDay5')
 
-            // const humidityDay1El = $('#tempDay1')
-            //const humidityDay2El = $('#tempDay2')
-            //const humidityDay3El = $('#tempDay3')
-            //const humidityDay4El = $('#tempDay4')
-            //const humidityDay5El = $('#tempDay5')
+            const humidityDay1El = $('#humidityDay1')
+            const humidityDay2El = $('#humidityDay2')
+            const humidityDay3El = $('#humidityDay3')
+            const humidityDay4El = $('#humidityDay4')
+            const humidityDay5El = $('#humidityDay5')
 
             tempDay1El.text("Temperature: " + fiveDayData.list[0].main.temp)
             tempDay2El.text("Temperature: " + fiveDayData.list[8].main.temp)
@@ -112,28 +80,23 @@ var getCityData = function (city) {
             tempDay4El.text("Temperature: " + fiveDayData.list[23].main.temp)
             tempDay5El.text("Temperature: " + fiveDayData.list[31].main.temp)
 
-            //windDay1El.text("Wind: " + fiveDayData.list[0].wind.speed)
-            //windDay2El.text("Wind: " + fiveDayData.list[8].wind.speed)
-            //windDay3El.text("Wind: " + fiveDayData.list[15].wind.speed)
-            //windDay4El.text("Wind: " + fiveDayData.list[23].wind.speed)
-            //windDay5El.text("Wind: " + fiveDayData.list[31].wind.speed)
+            windDay1El.text("Wind: " + fiveDayData.list[0].wind.speed)
+            windDay2El.text("Wind: " + fiveDayData.list[8].wind.speed)
+            windDay3El.text("Wind: " + fiveDayData.list[15].wind.speed)
+            windDay4El.text("Wind: " + fiveDayData.list[23].wind.speed)
+            windDay5El.text("Wind: " + fiveDayData.list[31].wind.speed)
 
-            //humidityDay1El.text("Wind: " + fiveDayData.list[0].main.humidity)
-            //humidityDay2El.text("Wind: " + fiveDayData.list[8].main.humidity)
-            //humidityDay3El.text("Wind: " + fiveDayData.list[15].main.humi)
-            //humidityDay4El.text("Wind: " + fiveDayData.list[23].main.humi)
-            //humidityDay5El.text("Wind: " + fiveDayData.list[31].main.humi)
+            humidityDay1El.text("Humidity: " + fiveDayData.list[0].main.humidity)
+            humidityDay2El.text("Humidity: " + fiveDayData.list[8].main.humidity)
+            humidityDay3El.text("Humidity: " + fiveDayData.list[15].main.humidity)
+            humidityDay4El.text("Humidity: " + fiveDayData.list[23].main.humidity)
+            humidityDay5El.text("Humidity: " + fiveDayData.list[31].main.humidity)
         })
 
         searchFunction();
     })
 
-
-
-    // function addtotextbox(id) {
-    //   $('#city').val(recentSearches[id]);
-    // console.log(recentSearches[id]);
-    //  }
+   
     //this function is called using the search buttons "onclick"
     function searchFunction(data) {
         recentSearches.push($('#city').val()); // This line puts the value from the text box in an array
@@ -149,26 +112,31 @@ var getCityData = function (city) {
     }
 
 
+//SearchAgain 
+
+    function search() {
+        var city = $("#city").val();
+        console.log("searching for " + city);  
+        recentSearches.push(city);
+        buildSearchHistory();
+        //console.log(recentSearches.length);
+      }
+      
+      function buildSearchHistory() {
+          console.log("adding to text box");
+          $("#searchHistory ul").empty();  
+        $.each(recentSearches, function(index, value){
+          $("#searchHistory ul")
+            .append("<li onclick='searchAgain("+index+")' >"+value+"</li>");
+        });
+      }
+      
+      function searchAgain(index) {
+        $("#city").val(recentSearches[index]);
+        search();
+      }
+        
+      
+      
 };
 
-//get value from city input
-// var formSubmitHandler = function (event) {
-//     event.preventDefault();
-//     //get value from input element
-//     var city = cityInputEl.value.trim();
-
-//     if (city) {
-//         getCityData(city);
-//         cityInputEl.value = "";
-//     } else {
-//         alert("Please enter a city name");
-//     }
-// }
-// cityFormEl.addEventListener("submit", formSubmitHandler);
-
-//fetch data from api
-// fetch("http://api.openweathermap.org").then(function(response) {
-//     console.log("inside", response);
-// });
-
-// console.log("outside");
